@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+body .first {position: fixed; top: 0; left: 0; width: 100%; height: 0; background-color: black; z-index: 10;}
+body .first.on {height: 100vh; animation: firstAni 1s 0.5s 1 forwards; animation-timing-function: cubic-bezier(.77,.09,.46,.82)}
+body .first.off {  animation: endAni 1s 0.5s 1 none; animation-timing-function: cubic-bezier(.77,.09,.46,.82)}
+@keyframes firstAni {0% {height: 100vh;} 100% {height: 0;}}
+@keyframes endAni {0% {top: 100vh;} 100% {top: 0; height: 100vh;}}
+#header {max-width: 1640px; margin: 0 auto; height: 120px;}
+#header h1 {width: 50%; float: left; line-height: 120px; font-size: 22px; font-weight: bold; opacity: 0; font-family: 'Archivo Narrow', sans-serif; font-weight: 700;}
+/* #header ul {float: right;}
+#header ul li {float: left; line-height: 120px; font-size: 18px; font-weight: bold; padding: 0 20px; opacity: 0;}
+#header ul li a {display: block;  font-family: 'Archivo Narrow', sans-serif;} */
+#header p {position: absolute; bottom: 100px; left: 15%; font-family: 'Noto Sans KR', sans-serif; font-size: 16px; opacity: 0;}
+
+#main { position: relative; }
+#main h2 {position: absolute; top: 190px; left: 280px; height: 370px; font-size: 180px; line-height: 1; overflow: hidden; font-family: 'Playfair Display', serif;}
+#main > ul {position: absolute; top: 160px; right: 120px; opacity: 0; }
+
+#main > ul > li {display: inline-block; text-align: center; position: relative; width: 170px; height: 150px;}
+#main > ul > li > a {display: block; width: 100%; color: #666; font-size: 20px; font-weight: 100; box-sizing: border-box; line-height: 150px;}
+#main > ul > li > a + a {margin-right: 10px; }
+#main > ul > li > a > strong {position: absolute; top:0; width: 100%; height: 100%; left: 50%; transform: translate(-50%, 0); font-size: 15px; transition: all 0.4s; color: #222; opacity: 0;}
+#main > ul > li > a:hover strong {opacity: 1; }
+
+h2 span {display: inline-block; opacity: 0;}
+h2 span.blank {width: 0.1em;}
+h2 span.show-up {animation: show-up 0.5s ease 1s 1 normal forwards;}
+
+strong span {display: inline-block; opacity: 0;}
+strong span.blank {width: 0.1em;}
+strong span.show-up {animation: show-up 0.5s ease 1s 1 normal forwards;}
+#main ul li strong span {opacity: 1; height: 50%; position: absolute; top:0; left: 50%; transform-origin: bottom; line-height: 1.2; font-size: 14px; transition: height 0.4s; }
+
+#header.on h1 {animation: fadeIn 1s 2s forwards;}
+#header.on p {animation: fadeIn 1s 2s forwards;}
+#main.on h2 {animation: fadeUp 0.8s 1s forwards;}
+#main.on ul {animation: fadeRight 1s 2s forwards;}
+#main ul li strong.on {animation: rotate 30s 0s linear alternate infinite; }
+
+@keyframes fadeRight {0% {opacity: 0;} 100% {opacity: 1; right:140px;}}
+@keyframes fadeUp {0% {opacity: 1;} 100% {opacity: 1; top:120px;}}
+@keyframes fadeIn {0% {opacity: 0;} 100% {opacity: 1;}}
+@keyframes show-up {
+    0% {opacity: 0; transform: translate(0, 40px);}
+    100% {opacity: 1; transform: translate(0, 0);}
+}
+@keyframes rotate {0% {transform: translate(-50%, 0) rotate(20deg);} 100% {transform: translate(-50%, 0) rotate(400deg);}}
+
+#main.pop_up_on::before {content: ''; display: block; position: fixed; width: 100vw; height: 100vh; left: 0; top: 0; background-color: rgba(0, 0, 0, 0.4); transition: all 0.4s;}
+#main ul li .pop_up {display: none;}
+#main ul li.show .pop_up {display: block; position: fixed; width: 60%; height: 80%; overflow-Y: scroll; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 2% 2%; z-index: 100; background-color: #fff; box-sizing: border-box; text-align: left; font-family: 'Noto Sans KR', sans-serif;}
+#main ul li.show .pop_up h3 {font-size: 26px; font-weight: 400; margin-bottom: 30px;}
+#main ul li.show .pop_up dl {width: 100%; overflow: hidden; margin-bottom: 20px;}
+#main ul li.show .pop_up dl dt {float: left; clear: left; width: 110px; height: 30px;}
+#main ul li.show .pop_up dl dd {float: left;  color: #888;}
+#main ul li.show .pop_up .image-slide {width: 100%; position: relative;}
+#main ul li.show .pop_up .image-slide .slide {position: absolute; left: 0; top: 35px; width: 100%;}
+#main ul li.show .pop_up .image-slide .slide li {position: absolute; left: 0; top: 0; width: 100%; display: none; margin-bottom: 40px; }
+#main ul li.show .pop_up .image-slide .slide li:first-child {display: block;}
+#main ul li.show .pop_up .image-slide .slide li img { width: 100%;}
+#main ul li.show .pop_up .image-slide .slide li a {display: block; width: 100%; height: 100%;}
+#main ul li.show .pop_up .image-slide .slide li.on a::before {content: ''; display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); }
+#main ul li.show .pop_up .image-slide .slide li.on a::after {content: 'View Web site'; display: block; position: absolute; left: 50%; top: 250px; transform: translate(-50%, -50%); width: 250px; height: 100px; background:url(../img/face_heart.png) no-repeat center; background-size: contain; line-height: 250px; text-align: center; font-size: 32px; color: #fff;}
+#main ul li.show .pop_up .image-slide .indicator {width: 100%; overflow: hidden; height: 40px;}
+#main ul li.show .pop_up .image-slide .indicator li {float: left; margin-right: 4px;}
+#main ul li.show .pop_up .image-slide .indicator a { display: block; padding: 8px 12px; border: 1px solid #000; border-radius: 5px;}
+#main ul li.show .pop_up .image-slide .indicator .on {background-color: #000; color: #fff;}
