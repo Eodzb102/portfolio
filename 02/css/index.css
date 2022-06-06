@@ -1,0 +1,240 @@
+@charset "uft-8";
+
+*{margin: 0; padding: 0; box-sizing:border-box }
+a {text-decoration: none; color: inherit}
+ul, ol ,li {list-style: none}
+i.fas, i.far, i.fab {vertical-align: middle; display: inline-block;}  /* 폰트어썸 */ 
+i.fas span, i.far span, i.fab span {position: absolute; overflow: hidden; text-indent: -999px;}  /* 폰트어썸 안에 글짜 날리기 */ 
+
+.container { max-width: 1440px; margin: 0 auto; padding-top: 125px ; text-align: center;}
+.container h2 { font-size: 27px; font-weight: normal; color: #333; margin-bottom: 20px; font-family:'Noto Serif KR' ;}
+
+/* 본문 바로가기 */
+.skip_navi a{ background-color: rgba(0, 0, 0, 0.8); font-weight: bold; color: white; text-decoration: underline; padding: 5px 5px; position: absolute; z-index: 999; top: -100%; width: 100%; text-align: center;}
+.skip_navi a:focus,
+.skip_navi a:active { top: 0;}
+
+
+/*시작*/
+body {font-family: 'NotoSansKR', '맑은 고딕', 'malgun gothic', '돋움', Dotum, 'Apple SD Gothic Neo', Helvetica, sans-serif; font-weight: 400; font-size: 14px; color: #333333 ;}
+#wrapper {min-width: 1024px; overflow: hidden;}  /* 최소 1024 까지 */
+
+
+#header {position: relative; background-color: #fff; z-index: 100;}
+#header > .box {position: relative; max-width: 1100px; height: 120px; margin: 0 auto;}
+#header h1 {position: absolute; left: 50%; transform: translateX(-50%); top: 20px;}
+#header h1 img {width: 170px;}
+#header .language {position: absolute; top: 10px; font-size: 11px; color: #999;}
+#header .language > a {display: block; margin-bottom:10px; font-weight: bold;}
+#header .language > a i {margin-left: 10px; transition: all 0.3s;}
+#header .language ul {position: relative; border: 1px solid #000; background-color: #fff; padding: 10px 0; display: none; z-index: 100;}
+#header .language ul li + li {margin-top: 2px;}
+#header .language ul li a {display: block; padding: 3px 10px;}
+#header .language ul li a:hover {background-color: rgba(204, 204, 204, 0.5);}
+#header .language > a.on i {transform: rotate(-180deg);}
+#header .language > a.on + ul {display: block;}  /* on 만붙이면 되게끔 */
+#header #top-menu {position: absolute; right: 0; top: 10px; font-size: 11px; color: #999;}
+#header #top-menu li {float: left; font-weight: bold;}
+#header #top-menu li + li::before {content: '|'; margin: 0 10px; font-size: 8px; position: relative; top: -1px;}
+#header #top-menu li .search-box {display: none;}
+#header #gnb {position: absolute; left: 0; bottom: 0; width: 100%; height: 35px; }
+#header #gnb > ul { text-align: center;}  /* 이렇게 하면 간단하지 바보야 */
+#header #gnb > ul > li {display: inline-block;}
+#header #gnb > ul > li > a{display:block; line-height: 35px; padding: 0 20px; font-size: 15px; color: #888; font-weight: bold; }
+#header #gnb > ul > li > ul {position: absolute; left: 0; top: 35px; width: 100%; font-size: 13px; color: #666; z-index: 10; display: none;}
+#header #gnb > ul > li > ul > li {display: inline-block; }
+#header #gnb > ul > li > ul > li a {display: block; line-height: 35px; padding: 0 15px; color: #888; font-weight: bold; }
+/* 선생님은 css 할때 마크업에 온 붙일때 하고 함 */
+#header.on #gnb::after {content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background-color: #e0e0e0;}
+#header::after {content: ''; position: absolute; left: 0; top:120px; width: 100%; height: 0; background-color: #fff; transition: all 0.3s;} 
+#header.on::after {height: 35px;}
+
+
+
+/*slidee 영역*/
+.main_slide { width: 100%; height: 550px; position: relative; overflow: hidden;  } 
+.image_slide { position: absolute; width: 100%; height: 100%; top: 0;}
+.slide { position: absolute; width: 100%;  height: 100%; background: url(../img/slide1-bg.jpg) no-repeat center; overflow: hidden; background-position: 40% 0; display: none; }
+.slide > div { height: 100%;}
+.slide2 { background-image: url(../img/slide2-bg.jpg); } 
+.slide3 { background-image: url(../img/slide3-bg.jpg); } 
+.slide4 { background-image: url(../img/slide4-bg.jpg); } 
+.slide5 { background-image: url(../img/slide5-bg.jpg); } 
+.slide .slide-text { width: 0; height: 100%; background-color: rgba(173, 96, 96, 0.75); float: right; font-family: 'Noto Serif KR'; color: white; transition: all 0.8s}
+.slide2 .slide-text {background-color:rgba(161, 107, 107, 0.5) ;}
+.slide3 .slide-text {background-color:rgba(100, 45, 45, 0.6) ;}
+.slide4 .slide-text {background-color:rgba(204, 166, 145, 0.7) ;}
+.slide5 .slide-text {background-color:rgba(255, 200, 82, 0.5) ;}
+.slide-text .title { width: 450px; height: 100%; text-align: right; opacity: 0;}
+.slide-text .title h2{ padding-top: 140px; font-size: 40px; font-weight: normal}
+.slide-text .title p { font-size: 18px; margin-bottom: 60px;}
+.slide-text .title p+p { margin-bottom: 40px;}
+.slide-text .title a { display: inline-block; width: 130px; height: 40px; border: 1px solid white; text-align: center; line-height: 40px; font-family: 'Noto Sans KR'; font-weight: bold;}
+
+
+.indicator {position: absolute; z-index: 100; bottom: 20px; left: 50%; transform: translateX(-50%);}
+.indicator li { width: 10px; height: 10px; border-radius: 50%; background-color: white; display: inline-block; margin: 0 3px; transition: all 0.3s;}
+.indicator li a {display: block; width: 100%; height: 100%; overflow: hidden; text-indent: -9999px;}
+.indicator li.on {width: 30px; border-radius: 15px;}
+.image_slide .control { position: absolute; bottom: 19px; left: 53.5%;  width: 18px; height: 18px;  display: inline-block; z-index: 10; }
+.image_slide .control .play {display: block; width: 18px; height: 18px; background: url(../img/btn-stop-pc.png) no-repeat center; overflow: hidden; text-indent: -9999px;}
+.control .play.on { background-image: url(../img/btn-play-pc.png) ; }
+.image_slide .slide_wrap li.on {display: block; z-index: 10;}
+.image_slide .slide_wrap li.on .slide-text {animation: main-visual-1 1.5s ease-out 1s 1 normal forwards;}
+.image_slide .slide_wrap li.on .title {animation: main-visual-2 1.5s ease-out 2.5s 1 normal forwards;}
+.image_slide .slide_wrap li.off {display: block; animation: main-visual-3 1.5s ease-out 0s 1 normal forwards; z-index: 20;}
+
+@keyframes main-visual-1 {  /* 뒤 배경 나오게 */
+  0% {width: 0; opacity: 0;}
+  100% {width: 45%; opacity: 1; }
+}
+@keyframes main-visual-2 {  /* 글자  */
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+/* 이거 조폐에서 슬라이드 이걸로 바구자 사라질때 */
+@keyframes main-visual-3 {  /* 전ㅇ체 li가 사라지게 */
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.main_slide > a {z-index: 100; position: absolute; top: 50%; margin-top: -25px; left: 10%; width: 50px;height: 50px;  background: url(../img/main-kv-arr-l.png) no-repeat center;}
+.main_slide > a:last-child { left: 90%; background: url(../img/main-kv-arr-r.png) no-repeat center;}
+
+
+/*gift*/
+section { width: 100%;}
+.gift { font-family: 'Noto Serif KR';}
+.gift .tab { width: 510px; margin: 0 auto; height: 60px; margin-bottom: 20px;  }
+.gift .tab li { float: left; width: 170px; height: 100%;}
+.gift .tab li a { display: block; width: 100%; height: 100%; font-family: 'Noto Sans KR'; font-size: 16px; line-height: 60px; color: #666; font-weight: 300; border-bottom: 2px solid #ccc;}
+.gift .tab li a.on { color: #b58348; font-weight: bold ; border-color: #b58348 ;}
+.gift .gift_menu { width: 100%;  position: relative; height: 380px;}
+.gift .gift_menu ul { position: absolute; width: 100%; height: 380px; display: none;}
+.gift .gift_menu ul.on {display: block;}
+.gift .gift_menu ul li { position: relative; width: 25%; float: left; height: 380px; overflow: hidden; background: url(../img/trending_img1.jpg) no-repeat center;}
+.gift .gift_menu ul li p { margin-top: 340px; font-size: 16px;}
+.gift .gift_menu ul li div { position: absolute; bottom: -380px;  /*-380px*/ width: 100%; height: 100%; background-color: rgba(240, 240, 240, 0.6); font-family: 'Noto Sans KR'; font-weight: 500;}
+.gift .gift_menu ul li div p {  position: absolute; top: 50%; left: 50%; margin-top: -45px; margin-left: -75px;}
+.gift .gift_menu ul li div a { display: block; height: 40px; width: 150px; border: 1px solid #555; text-align: center; line-height: 40px; margin-bottom: 20px; background-color: #555; color: white; font-size: 15px;}
+.gift .gift_menu ul li div a:first-child { background-color: white; color: #555;}
+.gift .gift_menu ul li:hover div { bottom: 0;}
+
+.gift_menu .trending li:nth-child(2) { background-image: url(../img/trending_img2.jpg);}
+.gift_menu .trending li:nth-child(3){ background-image: url(../img/trending_img3.jpg);}
+.gift_menu .trending li:nth-child(4) { background-image: url(../img/trending_img4.jpg);}
+.gift_menu .best li:first-child { background-image: url(../img/best_img1.jpg);}
+.gift_menu .best li:nth-child(2) { background-image: url(../img/best_img2.jpg);}
+.gift_menu .best li:nth-child(3){ background-image: url(../img/best_img3.jpg);}
+.gift_menu .best li:nth-child(4) { background-image: url(../img/best_img4.jpg);}
+.gift_menu .new li:first-child { background-image: url(../img/new_img1.jpg);}
+.gift_menu .new li:nth-child(2) { background-image: url(../img/new_img2.jpg);}
+.gift_menu .new li:nth-child(3){ background-image: url(../img/new_img3.jpg);}
+.gift_menu .new li:nth-child(4) { background-image: url(../img/new_img4.jpg);}
+
+/*with*/
+.with h2 { font-family: 'Noto Serif KR';}
+.with h2 + p { font-family: 'Noto Sans KR'; font-size: 14px; font-weight: 400; margin-bottom: 40px;}
+.with h2 + p i { margin-right: 5px;}
+.with .figure { width: 100%; height: 300px; overflow: hidden; position: relative;}
+.with .figure ul { width: 2700px; position: absolute;}
+.with .figure ul li { position: relative; float: left; margin-right: 20px; text-align: right; width: 300px; height: 300px; background: url(../img/with_img1.jpg) no-repeat center; background-size: cover; border: 1px solid #ccc; transition: all 0.4s; overflow: hidden; left: 0;}
+.figure ul li > i { color: white; margin: 10px 10px 0 0; font-size: 20px;} 
+.figure ul li .text { position: absolute; bottom: -84px; text-align: center; background-color: white; border-radius: 35% 35% 0 0; height: 80px; width: 100%; padding-top: 20px; transition: all 0.4s;}
+.figure ul li .text p { font-size: 14px; color: #555; font-weight: 300; margin-bottom: 10px;}
+.figure ul li .text span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 300px; height: 20px; font-size: 13px; padding: 0 10px;}
+.with .figure ul li:first-child { background-image: url(../img/with_img1.jpg) ;}
+.with .figure ul li:nth-child(2) { background-image: url(../img/with_img2.jpg) ;}
+.with .figure ul li:nth-child(3) { background-image: url(../img/with_img3.jpg) ;}
+.with .figure ul li:nth-child(4) { background-image: url(../img/with_img4.jpg) ;}
+.with .figure ul li:nth-child(5) { background-image: url(../img/with_img5.jpg) ;}
+.with .figure ul li:nth-child(6) { background-image: url(../img/with_img6.jpg) ;}
+.with .figure ul li:nth-child(7) { background-image: url(../img/with_img7.jpg) ;}
+.with .figure ul li:nth-child(8) { background-image: url(../img/with_img8.jpg) ;}
+.figure .control {position: absolute; width: 70px; height: 100%; margin-top: 0; background-color: rgba(255,255,255,0.8); z-index: 10; }
+.figure .control:first-child {left: 0;}
+.figure .control:last-child {right: 0;}
+.figure .control:first-child a {display: block; width: 100%; height: 100%; background: url(../img/main-kv-arr-l.png) no-repeat center; background-size: 25% 15%;}
+.figure .control:last-child a {display: block; width: 100%; height: 100%; background: url(../img/main-kv-arr-r.png) no-repeat center; background-size: 25% 15%;}
+
+.instar .figure .control:first-child a {background-size: 25% 8%;}
+.instar .figure .control:last-child a {background-size: 25% 8%;}
+/* .instar .figure .control, .with .figure .control {width: 70px; height: 100%; position: absolute; margin-top: 0;}
+.instar .figure .control a, .with .figure .control a {display: block; width: 100%; height: 100%;  transition: all 0.4s;}
+.instar .figure .control a {background-size: 35% 10%;}
+.instar .figure .prev, .with .figure .prev {left: 0; z-index: 10;}
+.instar .figure .prev, .with .figure .prev a {background:rgba(255, 255, 255, 0.8) url(../img/main-kv-arr-l.png) no-repeat; background-position: 50% 50%;  background-size: 25% 15%; }
+.instar .figure .next, .with .figure .next {right: 0; z-index: 10;}
+.instar .figure .next a, .with .figure .next a {background: rgba(255, 255, 255, 0.8) url(../img/main-kv-arr-r.png) no-repeat; background-position: 50% 50%; background-size: 25%  15%; } */
+.with .figure ul li:hover { background-position: center -25px; cursor: url(../img/cursor.png) 20 20,pointer;}
+.with .figure ul li:hover .text{ bottom: 0;}
+.banner { width: 100%; height: 160px; margin-top: 130px; background-color: #f9c6cd;  }
+.banner .event { display: block; width: 100%; height: 100%; background: url(../img/event.jpg) no-repeat center;}
+
+.highlight { width: 100%;}
+.highlight .container { padding-top: 0; max-width: 1260px; margin: 0 auto;}
+.highlight article { padding-top: 80px; width: 100%; height: 670px;}
+.highlight article div { width: 45%; margin-right: 10%; float: left; font-family: 'Noto Serif KR'; text-align: right;}
+.highlight article div:last-child { margin-right: 0;}
+.highlight article .text_left { padding-top: 50px; height: 100%;}
+.highlight article div h3 { font-size: 25px; border-bottom: 1px solid #866c4f; color: #96543c; height: 60px; line-height: 60px; margin-bottom: 40px;}
+.highlight article div p { font-size: 45px; margin-bottom: 40px;}
+.highlight article div p + p { font: 300 20px/1.5 'Noto Sans KR';}
+.highlight article div .btn { display: inline-block; width: 150px; height: 40px; border: 1px solid #333; text-align: center; font:bold 15px/40px 'Noto Sans KR'; color: #666;}
+.highlight article div img { width: 100%;}
+
+/*magazine*/
+.highlight .magazine .text_right { padding-top: 50px; text-align: left; height: 100%;}
+
+/*store*/
+.store_spa { width: 100%; height: auto;}
+.store_spa .container { height: 100%;}
+.store_spa h2 { margin-bottom: 40px;}
+.store_spa .store_img { position: relative; height: 400px; background: url(../img/flag-bg-pc-02.jpg) no-repeat center; transition: all 0.4s;}
+.store_spa .store_img .fixed_text { position: absolute; left: 50%; width: 365px; height: 100%; padding: 100px 28px; text-align: center;}
+.store_spa .store_img .fixed_text p { word-break: keep-all; font: 300 18px/1.6 'Noto Sans KR'; color: #666; margin-bottom: 40px;}  
+.store_spa .store_img .fixed_text .btn { display: block; width: 150px; height: 40px; border: 1px solid #333; text-align: center; font:bold 15px/40px 'Noto Sans KR'; color: #666; margin: auto;}
+.store_spa .store_img:hover { background: url(../img/flag-bg-pc-04.jpg) no-repeat center;}
+
+/*******************instar****************/
+.instar { background: #fafafa url(../img/icon_sulwhasoo_culture_pixlee.png) no-repeat center 40px; background-size: 65px; margin: 100px 0 80px 0;}
+.instar p { margin-top: 10px; font: 300 19px 'Noto Sans KR'; letter-spacing: -1px; color: #666;}
+.instar p + p { font-size: 15px; margin-bottom: 15px;}
+.instar p + p i { margin-right: 5px;}
+.instar .figure { width: 100%; height: 520px; overflow: hidden; position: relative;}
+.instar .figure ul { width: 180%; height: 520px; position: absolute;}
+.instar .figure ul li { float: left; margin-right: 20px; }
+.instar .figure ul li .instar_cont {position: relative; margin-bottom: 20px; width: 250px; height: 250px; overflow: hidden; text-align: right; border: 1px solid #ccc;}
+.instar .figure ul li .instar_cont img {width: 100%; transition: all 0.4s;}
+.instar .figure ul li .instar_cont i { color: white; margin: 10px 10px 0 0; font-size: 20px; }
+.instar .figure ul li .instar_cont .text { padding-top: 10px; width: auto;}
+.instar .figure ul li .instar_cont .text span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 250px; height: 20px; font-size: 13px; padding: 0 10px;}
+.instar .figure ul li .instar_cont:hover { background-position: center -25px; cursor: url(../img/cursor.png) 20 20,pointer;}
+.instar .figure ul li .instar_cont:hover .text{ bottom: 0;}
+.instar .figure ul li .instar_cont:hover img {margin-top: -15px;}
+
+/*footer*/
+footer { border-top: 1px solid #efefef; height: 150px;}
+footer .container { padding: 0; max-width: 1100px;}
+footer .f-top { width: 100%; height: 48px; border-bottom: 1px solid #efefef;}
+footer .f-top ul { padding: 16px 0; width: 83%; float: left; height: 48px;}
+footer .f-top ul li { float: left; margin-right: 20px;  font-size: 11px; color: #888;}
+footer .f-top ul li:hover { text-decoration: underline; color: #333;}
+footer .f-top .f-img { float: left; width: 50px; margin-top: 5px;  margin-right: 15px;}
+footer .f-top .f-img a { width: 50px; height: 48px;}
+footer .f-top .f-img img { width: 50px;}
+footer .f-top .sns { margin-top: 8px; height: 30px; border-left: 1px solid #efefef; width: 120px; float: left;}
+footer .f-top .sns a { font-size: 21px; margin: 0 5px; color: #888;}
+footer .f-top .sns a + a { font-size: 22px;}
+footer .f-top .sns a:hover { color: black;}
+footer .f-bot { width: 100%; height: 48px; margin-top: 10px;}
+footer .f-bot p { width: 320px; float: left; font-size: 11px; color: #888; text-align: left;}
+footer .f-bot ul li{ float: left; font-size: 11px; color: #888; padding: 0 10px; border-right: 1px solid #efefef;}
+footer .f-bot ul li:last-child { border: 0}
+footer .f-bot p:hover { color: black;}
+footer .f-bot li a:hover { text-decoration: underline; color: black;}
+footer .container > a { position: fixed; bottom: 1%; right: 15%; background-color: rgba(0, 0, 0, 0.3); display: block; width: 60px; height: 60px; z-index: 20;}
+footer .container > a img { width: 100%;}
+footer .container > a:hover{ background-color: rgba(0, 0, 0, 0.7);}
+
+
