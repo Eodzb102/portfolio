@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,address,main,nav,header,aside,article,section,footer,figure,table,tr,th,td,caption,thead,tbody,form,fieldset,blockquote {margin: 0}
+ul, ol, dl {padding: 0;}
+li {list-style: none}
+a {text-decoration: inherit; color: inherit;}
+a img {border: 0;}
+address, cite, i {font-style: normal}
+h1,h2,h3,h4,h5,h6 {font-weight: normal}
+table {border-collapse: collapse; border-spacing: 0;}
+caption {height: 0; text-indent: -9999px}
+header,nav,aside,article,main,section,footer,figure {display: block;}
+i.fas, i.far, i.fab {vertical-align: middle; display: inline-block;}
+i.fas span, i.far span, i.fab span {position: absolute; overflow: hidden; text-indent: -999px;}
+.cf:before,
+.cf:after {content: '';	display: block;	clear: both;}
+
+
+/* 본문 바로가기 */
+.skip_navi a{ position: absolute; z-index: 999; top: -100%; width: 100%; height: 40px;  background-color: rgba(0, 0, 0, 0.8);  padding: 5px 5px;  text-align: center; font-weight: bold; color: white; line-height: 40px;}
+.skip_navi a:focus,
+.skip_navi a:active { top: 0;}
+
+
+
+
