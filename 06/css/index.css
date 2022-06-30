@@ -5,15 +5,15 @@ body .first.on {height: 100vh; animation: firstAni 1s 0.5s 1 forwards; animation
 body .first.off {  animation: endAni 1s 0.5s 1 none; animation-timing-function: cubic-bezier(.77,.09,.46,.82)}
 @keyframes firstAni {0% {height: 100vh;} 100% {height: 0;}}
 @keyframes endAni {0% {top: 100vh;} 100% {top: 0; height: 100vh;}}
-#header {max-width: 1640px; margin: 0 auto; height: 120px;}
+#header {box-sizing: border-box; padding: 0 8%; height: 120px;}
 #header h1 {width: 50%; float: left; line-height: 120px; font-size: 22px; font-weight: bold; opacity: 0; font-family: 'Archivo Narrow', sans-serif; font-weight: 700;}
 /* #header ul {float: right;}
 #header ul li {float: left; line-height: 120px; font-size: 18px; font-weight: bold; padding: 0 20px; opacity: 0;}
 #header ul li a {display: block;  font-family: 'Archivo Narrow', sans-serif;} */
-#header p {position: absolute; bottom: 100px; left: 15%; font-family: 'Noto Sans KR', sans-serif; font-size: 16px; opacity: 0;}
+#header p {position: absolute; bottom: 100px; left: 8%; font-family: 'Noto Sans KR', sans-serif; font-size: 16px; opacity: 0;}
 
 #main { position: relative; }
-#main h2 {position: absolute; top: 190px; left: 280px; height: 370px; font-size: 180px; line-height: 1; overflow: hidden; font-family: 'Playfair Display', serif;}
+#main h2 {position: relative; top: 190px; left: 8%; height: 370px; font-size: 180px; line-height: 1; overflow: hidden; font-family: 'Playfair Display', serif;}
 #main > ul {position: absolute; top: 160px; right: 120px; opacity: 0; }
 
 #main > ul > li {display: inline-block; text-align: center; position: relative; width: 170px; height: 150px;}
@@ -34,10 +34,10 @@ strong span.show-up {animation: show-up 0.5s ease 1s 1 normal forwards;}
 #header.on h1 {animation: fadeIn 1s 2s forwards;}
 #header.on p {animation: fadeIn 1s 2s forwards;}
 #main.on h2 {animation: fadeUp 0.8s 1s forwards;}
-#main.on ul {animation: fadeRight 1s 2s forwards;}
+#main.on > ul {animation: fadeRight 1s 2s forwards;}
 #main ul li strong.on {animation: rotate 30s 0s linear alternate infinite; }
 
-@keyframes fadeRight {0% {opacity: 0;} 100% {opacity: 1; right:140px;}}
+@keyframes fadeRight {0% {opacity: 0;} 100% {opacity: 1; right: 8%;}}
 @keyframes fadeUp {0% {opacity: 1;} 100% {opacity: 1; top:120px;}}
 @keyframes fadeIn {0% {opacity: 0;} 100% {opacity: 1;}}
 @keyframes show-up {
@@ -65,3 +65,12 @@ strong span.show-up {animation: show-up 0.5s ease 1s 1 normal forwards;}
 #main ul li.show .pop_up .image-slide .indicator li {float: left; margin-right: 4px;}
 #main ul li.show .pop_up .image-slide .indicator a { display: block; padding: 8px 12px; border: 1px solid #000; border-radius: 5px;}
 #main ul li.show .pop_up .image-slide .indicator .on {background-color: #000; color: #fff;}
+
+
+@media screen and (max-width : 1320px) {
+    #main.on > ul {position: static; margin: 150px auto 0; width: 867px; }
+}
+
+@media screen and (max-width : 870px) {
+    h2 {font-size: 18vw;}
+}
